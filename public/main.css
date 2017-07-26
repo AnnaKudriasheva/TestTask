@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px; }
+
+.wrapper {
+  width: 100%; }
+
+.inner-wrapper {
+  margin: 0 auto; }
+
+.account-wrapper {
+  background-color: #000000; }
+
+.one-two.column {
+  width: 50%; }
+
+.account-info {
+  color: white;
+  font-size: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #000000;
+  text-transform: uppercase; }
+  .account-info > * {
+    font-size: 11px;
+    display: inline-block; }
+  .account-info:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.account-info-list {
+  list-style-type: none;
+  float: right; }
+
+.account-info-list li {
+  display: inline-block;
+  padding: 10px;
+  border-left: 1px solid #d7d7d7; }
+
+.account-info-list li:last-child {
+  border-right: 1px solid #d7d7d7; }
+
+.account-info-custom-care {
+  vertical-align: top;
+  padding: 9px 0; }
+
+.header-nav {
+  padding: 20px 0; }
+
+.header-nav > * {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0; }
+
+.header-nav-products-list {
+  list-style-type: none; }
+  .header-nav-products-list li {
+    display: inline-block;
+    margin-right: 20px; }
+    .header-nav-products-list li a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.08px; }
+
+.header-nav-busket > * {
+  height: 33px;
+  border: 1px solid #d7d7d7; }
+
+.header-nav-busket input {
+  padding-left: 5px;
+  width: 100%;
+  border-bottom: none; }
+
+.header-nav-busket .basket-content {
+  background-color: #fafafa; }
+
+.header-nav-busket {
+  width: 214px; }
+
+.main-slider {
+  width: 100%;
+  height: 440px;
+  background: linear-gradient(to right, #f6f3ec 0%, #f2eee6 50%, #dacfbe 100%); }
+  .main-slider div {
+    height: 100%;
+    background: url("images/banner-1.jpg") no-repeat center center;
+    background-size: contain; }
+
+@media (min-width: 1200px) {
+  .inner-wrapper {
+    width: 980px; }
+  .header-nav-logo {
+    width: 328px; }
+  .header-nav-products-list {
+    width: 430px; } }
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .inner-wrapper {
+    width: 768px; }
+  .hidden-md {
+    display: none; } }
+
+@media (min-width: 640px) and (max-width: 768px) {
+  .inner-wrapper {
+    width: 640px; }
+    .inner-wrapper > * {
+      display: block; }
+  .one-two .column {
+    width: 100%; }
+  .hidden-sm {
+    display: none; } }
