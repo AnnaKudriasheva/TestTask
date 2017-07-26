@@ -1,21 +1,25 @@
-// fonts
+// FONTS
 $arial-font: 'Arial', sans-serif;
 
 
-// colors
+// COLORS
 $black-color: #000000;
 $border-color: #d7d7d7;
 
-// grid
 
-
-// mixins
+// MIXINS
 @mixin clearfix {
   &:after {
     content: "";
     display: table;
     clear: both;
   }
+}
+
+@mixin stitches-sprite ($x: 0, $y: 0, $width: 0, $height: 0) {
+  background-position: $x $y;
+  width: $width;
+  height: $height;
 }
 
 * {
@@ -59,17 +63,25 @@ body {
 
 .account-info-list {
   list-style-type: none;
+  font-size: 0;
   float: right;
-}
-
-.account-info-list li {
-  display: inline-block;
-  padding: 10px;
-  border-left: 1px solid $border-color;
-}
-
-.account-info-list li:last-child {
-  border-right: 1px solid $border-color;
+  li {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 auto;
+    vertical-align: middle;
+    font-size: 11px;
+    line-height: 30px;
+    border-left: 1px solid #444444;
+    &:last-child {
+      border-right: 1px solid #444444;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: grey;
+    }
+  }
 }
 
 .account-info-custom-care {
@@ -77,10 +89,36 @@ body {
   padding: 9px 0;
 }
 
-// header
+.user-icon {
+  display: inline-block;
+  background-image: url('./images/header-sprites.png');
+  background-repeat: no-repeat;
+  margin-right: 8px;
+  vertical-align: text-bottom;
+  @include stitches-sprite(-10px, -132px, 14px, 13px);
+}
+
+.search-icon {
+  display: inline-block;
+  background-image: url('./images/header-sprites.png');
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  @include stitches-sprite(-10px, -97px, 15px, 15px);
+}
+
+.arrow-down-icon {
+  display: inline-block;
+  background-image: url('./images/header-sprites.png');
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin-left: 8px;
+  @include stitches-sprite(-10px, -73px, 7px, 4px);
+}
+
+// HEADER
 
 .header-nav {
-  padding: 20px 0;
+  padding: 20px 0 0 0;
 }
 
 .header-nav > * {
@@ -100,19 +138,43 @@ body {
       font-size: 16px;
       font-weight: 500;
       letter-spacing: -0.08px;
+      &:after {
+        content: '';
+        display: inline-block;
+        background-image: url('./images/header-sprites.png');
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        margin-left: 8px;
+        @include stitches-sprite(-10px, -49px, 7px, 4px);
+
+      }
     }
   }
 }
 
 .header-nav-busket {
+  position: relative;
    > * {
      height: 33px;
      border: 1px solid $border-color;
    }
-   input {
-     padding-left: 5px;
+   button {
+      padding-left: 7px;
+      background-color: white;
       width: 100%;
+      text-align: left;
       border-bottom: none;
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        top: 14px;
+        background-image: url('./images/header-sprites.png');
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        @include stitches-sprite(-10px, -73px, 7px, 4px);
+      }
    }
    .basket-content {
      background-color: #fafafa;
@@ -123,17 +185,119 @@ body {
   width: 214px;
 }
 
-// slider
+// SLIDER
+
 .main-slider {
   width: 100%;
   height: 440px;
-  background: linear-gradient(to right, #f6f3ec 0%, #f2eee6 50% ,#dacfbe 100%);
+  position: relative;
+  padding-bottom: 69px;
   div {
       height: 100%;
       background: url("images/banner-1.jpg") no-repeat center center;
-      background-size: contain;
   }
 }
+
+.slider-arrow-right {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 31px;
+  height: 118px;
+  background-color: white;
+  span {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    display: block;
+    background-image: url('images/slider-sprites.png');
+    background-repeat: no-repeat;
+    @include stitches-sprite(-10px, -48px, 12px, 18px);
+  }
+}
+
+.slider-arrow-left {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 31px;
+  height: 118px;
+  background-color: white;
+  z-index: 1;
+  span {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    display: block;
+    background-image: url('images/slider-sprites.png');
+    background-repeat: no-repeat;
+    @include stitches-sprite(-10px, -10px, 12px, 18px);
+  }
+}
+
+.slick-dots {
+  margin: 30px auto;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+    button {
+      font-size: 0;
+      background-color: #867a76;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+    }
+  }
+  .slick-active button {
+    font-size: 0;
+    background-color: #fd926d;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+  }
+}
+
+// SUBSCRIPTIONS
+
+.service-subscription {
+  font-size: 0;
+  background-color: #ededed;
+  height: 56px;
+}
+
+.email-form {
+  label {
+    font-size: 12px;
+    margin-right: 10px;
+    position: relative;
+    line-height: 56px;
+    height: 100%;
+  }
+  input {
+    width: 160px;
+    height: 30px;
+    border: none;
+    margin-left: 10px;
+    padding: 0 30px 0 10px;
+  }
+  button {
+    position: absolute;
+    width: 28px;
+    height: 30px;
+    right: 0;
+    top: -8px;
+    background-color: #fd926d;
+    border: none;
+    border-bottom: 4px solid #dd6b44;
+  }
+}
+
 @media (min-width:1200px) {
   .inner-wrapper {
     width: 980px;

@@ -13,9 +13,17 @@
       </div>
       <div class="one-two column">
         <ul class="account-info-list">
-          <li class="account-info-currency">$us</li>
-          <li class="account-info-my-account">my account</li>
-          <li class="account-info-search">search</li>
+          <li class="account-info-currency">
+            <span class="currency">$</span> us
+            <span class="arrow-down-icon"></span>
+          </li>
+          <li class="account-info-my-account">
+            <span class="user-icon"></span>
+            my account
+          </li>
+          <li class="account-info-search">
+            <span class="search-icon"></span>
+          </li>
         </ul>
       </div>
     </div>
@@ -35,7 +43,7 @@
         </ul>
       </div>
       <div class="header-nav-busket">
-        <input type="text" placeholder="Your card">
+        <button>Your cart</button>
         <div class="basket-content"></div>
       </div>
       <div class="visible-sm"></div>
@@ -46,6 +54,31 @@
     <div></div>
     <div></div>
     <div></div>
+    <div></div>
+  </section>
+  <section class="wrapper service-subscription">
+    <div class="inner-wrapper">
+      <div class="one-two column">
+        <form method="GET" action="URL" class="email-form">
+            <label for="user-email">Stay updated:
+              <input type="email"
+                     placeholder="Your email address"
+                     name="user-email"
+                     id="user-email"
+              >
+              <button type="submit"></button>
+            </label>
+        </form>
+      </div>
+      <div class="one-two column">
+        <ul class="find-us">
+          <li>Find us there:</li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </section>
   <script src="jquery-3.2.1.min.js"></script>
   <script src="slick/slick.min.js"></script>
