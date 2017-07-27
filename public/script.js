@@ -7,4 +7,11 @@ $(document).ready(function () {
         nextArrow: '<span class="slider-arrow-right"><span></span></span>',
         prevArrow: '<span class="slider-arrow-left"><span></span></span>'
     });
+
+    $('#catalog-slider').slick({
+    centerMode: true,
+    centerPadding: '5px',
+    variableWidth: true,
+    slidesToShow: 4
+  });
 });

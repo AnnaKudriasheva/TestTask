@@ -18,10 +18,6 @@ gulp.task("sass", function () {
   .pipe(gulp.dest("public"));
 });
 
-// gulp.task("clean", function () {
-//   return del("public");
-// });
-
 gulp.task("assets", function () {
   return gulp.src("frontend/assets/**/*.*")
   .pipe(gulp.dest("public"));
