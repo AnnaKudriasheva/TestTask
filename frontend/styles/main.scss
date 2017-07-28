@@ -6,21 +6,21 @@ $main-font: 'Arial', sans-serif;
 $black-color: #000000;
 $border-color: #d7d7d7;
 $main-orange-color: #fd926d;
+$button-border-color: #dd6b44;
 
 
 // MIXINS
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 @mixin stitches-sprite ($x: 0, $y: 0, $width: 0, $height: 0) {
   background-position: $x $y;
   width: $width;
   height: $height;
+}
+
+@mixin vertical-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 html {
@@ -31,7 +31,6 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition-duration: 0.3s;
 }
 
 a {
@@ -41,6 +40,7 @@ a {
 
 body {
   font-family: $main-font;
+  animation: none;
 }
 
 h2 {
@@ -53,8 +53,12 @@ h3 {
   font-size: 15px;
 }
 
-.wrapper {
-  width: 100%;
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 .inner-wrapper {
@@ -79,7 +83,6 @@ h3 {
     font-size: 1.1rem;
     display: inline-block;
   }
-  @include clearfix;
 }
 
 .account-info-list {
@@ -90,15 +93,13 @@ h3 {
     display: inline-block;
     height: 30px;
     padding: 0 10px;
-    margin: 0 auto;
-    vertical-align: middle;
     font-size: 1.1rem;
     line-height: 30px;
     border-left: 1px solid #444444;
     &:last-child {
       border-right: 1px solid #444444;
     }
-    &:hover {
+    &:hover, &:focus {
       cursor: pointer;
       background-color: grey;
     }
@@ -201,7 +202,6 @@ h3 {
    .basket-content {
      background-color: #fafafa;
      position: relative;
-     @include clearfix;
      &:before {
        content: '';
        position: absolute;
@@ -238,51 +238,52 @@ h3 {
 .main-slider {
   width: 1200px;
   margin: 0 auto;
-  height: 440px;
   position: relative;
-  padding-bottom: 69px;
   div {
+    img {
+      width: 100%;
       height: 100%;
-      background: url("images/banner-1.jpg") no-repeat center center;
+    }
   }
 }
 
 .slider-arrow-right {
-  position: absolute;
   right: 0;
-  top: 30%;
-  width: 31px;
-  height: 118px;
-  background-color: white;
-  cursor: pointer;
   span {
-    position: absolute;
-    top: 40%;
-    left: 35%;
     display: block;
     background-image: url('images/slider-sprites.png');
     background-repeat: no-repeat;
     @include stitches-sprite(-10px, -48px, 12px, 18px);
+    @include vertical-center();
+  }
+}
+
+.slider-arrow-right,
+.slider-arrow-left {
+  position: absolute;
+  top: 30%;
+  width: 31px;
+  height: 118px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  &:hover {
+    background-color: rgba(253, 146, 109, 0.24);
   }
 }
 
 .slider-arrow-left {
-  position: absolute;
   left: 0;
-  top: 30%;
-  width: 31px;
-  height: 118px;
-  background-color: white;
   z-index: 1;
-  cursor: pointer;
   span {
-    position: absolute;
-    top: 40%;
-    left: 35%;
     display: block;
     background-image: url('images/slider-sprites.png');
     background-repeat: no-repeat;
     @include stitches-sprite(-10px, -10px, 12px, 18px);
+    @include vertical-center();
+  }
+  &:hover {
+    background-color: rgba(253, 146, 109, 0.24);
   }
 }
 
@@ -292,17 +293,25 @@ h3 {
   li {
     cursor: pointer;
     display: inline-block;
-    padding: 15px;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
     &:last-child {
       margin-right: 0;
     }
     button {
+      transition-duration: 0.3s;
       font-size: 0;
       background-color: #867a76;
       width: 10px;
       height: 10px;
       border-radius: 50%;
       border: none;
+    }
+    &:hover {
+      button {
+        background-color: rgba(158, 121, 109, 0.5);
+      }
     }
   }
   .slick-active button {
@@ -317,23 +326,24 @@ h3 {
 
 // SUBSCRIPTIONS
 
-.service-subscription {
+.service-subscription-wrapper {
   font-size: 0;
   background-color: #ededed;
   height: 56px;
   .inner-wrapper > * {
     display: inline-block;
   }
-  @include clearfix;
 }
 
 .email-form {
   vertical-align: top;
   height: 100%;
   line-height: 56px;
+  form {
+    height: 56px;
+  }
   label {
     font-size: 1.2rem;
-    margin-right: 10px;
     position: relative;
     color: $main-orange-color;
   }
@@ -356,7 +366,15 @@ h3 {
     top: -8px;
     background-color: $main-orange-color;
     border: none;
-    border-bottom: 4px solid #dd6b44;
+    border-bottom: 4px solid $button-border-color;
+    &:before {
+      content: '';
+      background-image: url('images/arrows-sprites.png');
+      background-repeat: no-repeat;
+      display: block;
+      @include stitches-sprite(-10px, -37px, 11px, 11px);
+      @include vertical-center;
+    }
   }
 }
 
@@ -372,6 +390,7 @@ h3 {
     margin: 0 auto;
     font-size: 1.2rem;
     line-height: 56px;
+    transition-duration: 0.3s;
     &:first-child {
       padding-right: 15px;
       width: auto;
@@ -384,6 +403,12 @@ h3 {
     }
     &:nth-child(2n) {
       background-color: #f7f7f7;
+    }
+    &:hover {
+      background-color: rgba(158, 121, 109, 0.5);
+    }
+    &:nth-child(1) {
+      background-color: inherit;
     }
     .facebook:before {
         content: '';
@@ -423,6 +448,11 @@ h3 {
 .collection-links {
   padding: 40px 0 50px 0;
   font-size: 0;
+  a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -437,6 +467,29 @@ h3 {
   }
   .bottom {
     height: 50%;
+  }
+}
+
+.to-collection-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 31px;
+  border: none;
+  padding: 10px;
+  background-color: #4fafa0;
+  color: #ffffff;
+  font-family: "Helvetica", sans-serif;
+  text-transform: uppercase;
+  &:after {
+    content: '';
+    display: inline-block;
+    margin: 0 0 1px 10px;
+    background-image: url('./images/arrows-sprites.png');
+    background-repeat: no-repeat;
+    @include stitches-sprite(-10px, -10px, 4px, 7px);
+  }
+  &:hover, &:focus {
+    background-color: #3f8d81;
   }
 }
 
@@ -470,7 +523,7 @@ h3 {
   font-size: 0;
   img {
     width: 100%;
-    height: 68%;
+    height: 70%;
   }
   figcaption {
     height: 30%;
@@ -480,7 +533,7 @@ h3 {
     color: #373737;
     .catalog-item-description {
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 1.2rem;
       color: #373737;
       margin-bottom: 5px;
     }
@@ -494,6 +547,7 @@ h3 {
 #catalog-slider {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px 0;
   background-color: $main-orange-color;
   .slick-slide.catalog-item {
     width: 220px;
@@ -502,19 +556,45 @@ h3 {
     padding: 0 5px;
   }
   .catalog-item {
-    width: 220px;
+    position: relative;
+    width: 240px;
     height: 415px;
-    padding: 10px 0;
-    margin: 0 15px;
+    padding: 10px 10px;
+    margin: 0 5px;
     font-size: 0;
-    &:hover {
-      width: 235px;
+    figure {
+      width: 100%;
       height: 100%;
+    }
+    &:hover, &focus {
       padding: 0;
+    }
+    .catalog-item-shop-it {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 132px;
+      height: 132px;
+      background-color: #3d3d3d;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+      span {
+        display: block;
+        background-image: url('images/arrows-sprites.png');
+        background-repeat: no-repeat;
+        @include vertical-center();
+        @include stitches-sprite(-10px, -68px, 30px, 29px);
+      }
+      p {
+        font-size: 12px;
+        color: white;
+        text-transform: uppercase;
+      }
     }
     img {
       width: 100%;
-      height: 68%;
+      height: 70%;
     }
     figcaption {
       height: 30%;
@@ -522,28 +602,75 @@ h3 {
       background-color: #f7f7f7;
       padding: 10px 0;
       color: #373737;
-      .catalog-item-description {
-        text-transform: uppercase;
-        font-size: 12px;
-        color: #373737;
-        margin-bottom: 5px;
-      }
-      .catalog-item-price {
-        font-size: 22px;
-        margin-bottom: 4px;
-      }
     }
   }
 }
 
-.orange-btn {
+.slider-catalog-arrow-right {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background-color: #f2f2f2;
+  transform: rotate(180deg);
+  transition-duration: 0;
+  span {
+    display: block;
+    background-image: url('images/arrows-sprites.png');
+    background-repeat: no-repeat;
+    @include vertical-center();
+    @include stitches-sprite(-10px, -117px, 18px, 35px);
+  }
+}
+
+.slider-catalog-arrow-left,
+.slider-catalog-arrow-right {
+  &:hover, &:focus {
+    background-color: $main-orange-color;
+  }
+}
+
+.slider-catalog-arrow-left {
+  position: absolute;
+  top: -45px;
+  right: 45px;
+  width: 45px;
+  height: 45px;
+  background-color: #f2f2f2;
+  span {
+    display: block;
+    background-image: url('images/arrows-sprites.png');
+    background-repeat: no-repeat;
+    @include stitches-sprite(-10px, -117px, 18px, 35px);
+    @include vertical-center();
+  }
+}
+
+.main-btn {
   text-transform: uppercase;
   border: none;
-  font-size: 12px;
+  font-size: 1.2rem;
   color: white;
   background-color: $main-orange-color;
-  border-bottom: 4px solid #dd6b44;
+  border-bottom: 4px solid $button-border-color;
   padding: 9px 10px;
+  transition-duration: 0.3s;
+  &:hover, &:focus {
+    background-color: $button-border-color;
+    border-bottom: 4px solid $main-orange-color;
+  }
+}
+
+.add-btn {
+  &:after {
+    content: '';
+    display: inline-block;
+    margin: 0 0 -1px 10px;
+    background-image: url('./images/arrows-sprites.png');
+    background-repeat: no-repeat;
+    @include stitches-sprite(-10px, -37px, 11px, 11px);
+  }
 }
 
 // DISCOUNT
@@ -565,23 +692,21 @@ h3 {
   span {
     display: inline-block;
     position: relative;
-    &:after {
+    &:after, &:before {
       content: "";
       position: absolute;
       height: 5px;
       border-top: 1px solid #d8d8d8;
       top: 50%;
-      left: 175px;
       width: 390px;
     }
     &:before {
-      content: "";
-      position: absolute;
-      height: 5px;
-      border-top: 1px solid #d8d8d8;
-      top: 50%;
-      right: 175px;
-      width: 390px;
+      right: 100%;
+      margin-right: 15px;
+    }
+    &:after {
+      left: 100%;
+      margin-left: 15px;
     }
   }
 }
@@ -600,7 +725,6 @@ h3 {
     align-items: center;
   }
 }
-
 
 // ABOUT SHOP
 
@@ -627,6 +751,10 @@ h3 {
       li {
         display: inline-block;
         vertical-align: middle;
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
         p {
           font-size: 1.2rem;
           color: #9c9c9c;
@@ -726,7 +854,6 @@ h3 {
       color: white;
       float: right;
     }
-    @include clearfix();
   }
 }
 

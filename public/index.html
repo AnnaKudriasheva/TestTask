@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="slick/slick.css">
 </head>
 <body>
-  <section class="wrapper account-wrapper">
-    <div class="inner-wrapper account-info">
+  <section class="account-wrapper">
+    <div class="inner-wrapper account-info clearfix">
       <div class="account-info-custom-care one-two column">
-        custom care: <span>888-23-4567</span>
+        <p>custom care: <a type="tel:888234567">888-23-4567</a></p>
       </div>
       <div class="one-two column">
         <ul class="account-info-list">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </section>
-  <header class="wrapper header-wrapper">
+  <header class="header-wrapper">
     <nav class="header-nav inner-wrapper">
       <div class="header-nav-logo">
         <a href="#"><img src="images/logo.png" alt=""></a>
@@ -43,38 +43,48 @@
         </ul>
       </div>
       <div class="header-nav-busket">
-        <button>Your cart</button>
-        <div class="basket-content">
+        <button class="your-cart">Your cart</button>
+        <div class="basket-content clearfix">
           <ul class="basket-inner">
-            <li><span>0</span> ITEMS</li>
-            <li><span>$</span> 0</li>
+            <li><p><span>0</span> ITEMS</p></li>
+            <li><p><span>$</span> 0</p></li>
           </ul>
         </div>
       </div>
       <div class="visible-sm"></div>
     </nav>
   </header>
-  <section class="wrapper">
+  <section class="slider-wrapper">
     <div class="main-slider">
       <div>
-        <div class="content-item"></div>
+        <div class="content-item">
+          <img src="images/banner-1.jpg" alt="">
+        </div>
       </div>
       <div>
-        <div class="content-item"></div>
+        <div class="content-item">
+          <img src="images/banner-1.jpg" alt="">
+        </div>
       </div>
       <div>
-        <div class="content-item"></div>
+        <div class="content-item">
+          <img src="images/banner-1.jpg" alt="">
+        </div>
       </div>
       <div>
-        <div class="content-item"></div>
+        <div class="content-item">
+          <img src="images/banner-1.jpg" alt="">
+        </div>
       </div>
       <div>
-        <div class="content-item"></div>
+        <div class="content-item">
+          <img src="images/banner-1.jpg" alt="">
+        </div>
       </div>
     </div>
   </section>
-  <section class="wrapper service-subscription">
-    <div class="inner-wrapper">
+  <section class="service-subscription-wrapper">
+    <div class="inner-wrapper clearfix">
       <div class="one-two column email-form">
         <form method="GET" action="URL">
             <label for="user-email">Stay updated:
@@ -83,7 +93,7 @@
                      name="user-email"
                      id="user-email"
               >
-              <button type="submit"></button>
+              <button type="submit" class="main-btn"></button>
             </label>
         </form>
       </div>
@@ -103,27 +113,30 @@
       </div>
     </div>
   </section>
-  <section class="wrapper">
+  <section class="collection-links-wrapper">
     <div class="inner-wrapper collection-links">
       <div class="one-two column">
-        <img src="images/collections.jpg" alt="">
+        <a href=#><img src="images/collections.jpg" alt=""></a>
       </div>
       <div class="one-two column">
         <div class="top">
-          <img src="images/collections-02.jpg" alt="">
+            <a href=#><img src="images/collections-02.jpg" alt=""></a>
         </div>
         <div class="bottom">
           <div class="one-two column">
-            <img src="images/collections-03.jpg" alt="">
+              <a href=#><img src="images/collections-03.jpg" alt=""></a>
           </div>
           <div class="one-two column">
-            <img src="images/collections-04.jpg" alt="">
+              <a href=#>
+                <button class="to-collection-btn">shop now</button>
+                <img src="images/collections-04.jpg" alt="">
+              </a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="wrapper catalog-wrapper">
+  <section class="catalog-wrapper">
     <div class="inner-wrapper catalog-slider-controls">
       <ul class="tab-navigation">
         <li class="active-tab"><a href="#">what's hot</a></li>
@@ -139,7 +152,21 @@
           <figcaption>
             <h4 class="catalog-item-description">momosa lace dress</h4>
             <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
+          </figcaption>
+        </figure>
+        <div class="catalog-item-shop-it">
+          <span></span>
+          <p>skip it</p>
+        </div>
+      </div>
+      <div class="catalog-item">
+        <figure>
+          <img src="images/catalog.jpg" alt="">
+          <figcaption>
+            <h4 class="catalog-item-description">momosa lace dress</h4>
+            <h3 class="catalog-item-price">$76.95</h3>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
           </figcaption>
         </figure>
       </div>
@@ -149,7 +176,7 @@
           <figcaption>
             <h4 class="catalog-item-description">momosa lace dress</h4>
             <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
           </figcaption>
         </figure>
       </div>
@@ -159,7 +186,7 @@
           <figcaption>
             <h4 class="catalog-item-description">momosa lace dress</h4>
             <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
           </figcaption>
         </figure>
       </div>
@@ -169,7 +196,7 @@
           <figcaption>
             <h4 class="catalog-item-description">momosa lace dress</h4>
             <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
           </figcaption>
         </figure>
       </div>
@@ -179,24 +206,14 @@
           <figcaption>
             <h4 class="catalog-item-description">momosa lace dress</h4>
             <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="catalog-item">
-        <figure>
-          <img src="images/catalog.jpg" alt="">
-          <figcaption>
-            <h4 class="catalog-item-description">momosa lace dress</h4>
-            <h3 class="catalog-item-price">$76.95</h3>
-            <button type="submit" class="orange-btn">add to cart</button>
+            <button type="submit" class="main-btn add-btn">add to cart</button>
           </figcaption>
         </figure>
       </div>
     </div>
   </section>
-  <section class="wrapper">
-    <div class="inner-wrapper discount-wrapper">
+  <section class="discount-wrapper">
+    <div class="inner-wrapper">
       <h2 class="line-on-side">
         <span>
           <img src="images/discount-header.png" alt="">
@@ -209,7 +226,7 @@
             <figcaption>
               <h4 class="catalog-item-description">momosa lace dress</h4>
               <h3 class="catalog-item-price">$76.95</h3>
-              <button type="submit" class="orange-btn">add to cart</button>
+              <button type="submit" class="main-btn add-btn">add to cart</button>
             </figcaption>
           </figure>
         </div>
@@ -219,7 +236,7 @@
             <figcaption>
               <h4 class="catalog-item-description">momosa lace dress</h4>
               <h3 class="catalog-item-price">$76.95</h3>
-              <button type="submit" class="orange-btn">add to cart</button>
+              <button type="submit" class="main-btn add-btn">add to cart</button>
             </figcaption>
           </figure>
         </div>
@@ -229,7 +246,7 @@
             <figcaption>
               <h4 class="catalog-item-description">momosa lace dress</h4>
               <h3 class="catalog-item-price">$76.95</h3>
-              <button type="submit" class="orange-btn">add to cart</button>
+              <button type="submit" class="main-btn add-btn">add to cart</button>
             </figcaption>
           </figure>
         </div>
@@ -239,15 +256,15 @@
             <figcaption>
               <h4 class="catalog-item-description">momosa lace dress</h4>
               <h3 class="catalog-item-price">$76.95</h3>
-              <button type="submit" class="orange-btn">add to cart</button>
+              <button type="submit" class="main-btn add-btn">add to cart</button>
             </figcaption>
           </figure>
         </div>
       </div>
     </div>
   </section>
-  <section class="wrapper">
-    <div class="inner-wrapper favourite-brands-wrapper">
+  <section class="favourite-brands-wrapper">
+    <div class="inner-wrapper">
       <h3 class="line-on-side">
         <span>
           FAVOURITE BRANDS
@@ -297,8 +314,8 @@
       </div>
     </div>
   </section>
-  <section class="wrapper">
-    <div class="inner-wrapper about-shop-wrapper">
+  <section class="about-shop-wrapper">
+    <div class="inner-wrapper">
       <h2>About lookshop</h2>
       <p>This is Photoshop's version  of Lorem Ipsum.
          Proin gravida nibh vel velit auctor aliquet.
@@ -314,20 +331,72 @@
         </p>
     </div>
   </section>
-  <section class="wrapper payment-wrapper">
+  <section class="payment-wrapper">
     <div class="inner-wrapper">
       <ul class="payment-systems-list">
         <li>
           <p>We accept</p>
         </li>
         <li>
-            <img src="images/payment-system.png" alt="payment">
+          <a href="#">
+              <img src="images/visa.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/master-card.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/paypal.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/american-express.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/visa-electron.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/laser.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/maestro.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/delta.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/solo.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/di.jpg" alt="payment">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+              <img src="images/dk.jpg" alt="payment">
+          </a>
         </li>
       </ul>
     </div>
   </section>
   <footer>
-    <div class="wrapper footer-content">
+    <div class="footer-content">
       <div class="inner-wrapper">
         <div class="four-lists">
           <ul>
@@ -387,7 +456,7 @@
         </div>
       </div>
     </div>
-    <div class="wrapper footer-links">
+    <div class="footer-links">
       <div class="inner-wrapper">
         <ul>
           <li><a href="#">Privacy & Cookies</a></li>

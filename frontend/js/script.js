@@ -10,8 +10,10 @@ $(document).ready(function () {
 
     $('#catalog-slider').slick({
     centerMode: true,
-    centerPadding: '5px',
+    centerPadding: '40px',
     variableWidth: true,
-    slidesToShow: 4
+    slidesToShow: 4,
+    nextArrow: '<span class="slider-catalog-arrow-right"><span></span></span>',
+    prevArrow: '<span class="slider-catalog-arrow-left"><span></span></span>'
   });
 });
